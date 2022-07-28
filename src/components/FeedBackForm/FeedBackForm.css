@@ -1,0 +1,46 @@
+* {
+  color: rgb(8, 4, 4);
+}
+
+.FeedBackForm__section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  font-size: 25px;
+  background-color: rgba(93, 173, 147, 0.61);
+  box-shadow: 2px 2px 29px 2px rgba(31, 255, 156, 0.41);
+  overflow: hidden;
+}
+
+.wrapper__feedback {
+  display: flex;
+  gap: 10px;
+}
+
+.mark__btn {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px;
+  width: 70px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+.form__title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.form__text {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.NotificationMessage {
+  color: #e27979;
+  font-weight: 500;
+}
