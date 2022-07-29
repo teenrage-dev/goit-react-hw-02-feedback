@@ -12,44 +12,32 @@ export class FeedBackForm extends Component {
     bad: 0,
   };
 
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   console.log(e.target.elements);
-  // };
-
-  handleClickGood = e => {
+  handleClick = e => {
     this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    }, this.countTotalFeedback);
-  };
-
-  handleClickNeutral = e => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    }, this.countTotalFeedback);
-  };
-
-  handleClickBad = e => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
+      const prevStateName = e.target.name;
+      if (prevStateName === 'good') {
+        return {
+          good: prevState.good + 1,
+        };
+      } else if (prevStateName === 'neutral') {
+        return {
+          neutral: prevState.neutral + 1,
+        };
+      } else if (prevStateName === 'bad') {
+        return {
+          bad: prevState.bad + 1,
+        };
+      }
     }, this.countTotalFeedback);
   };
 
   countTotalFeedback() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
-    console.log(total);
     return total;
   }
 
   countPositiveFeedbackPercentage(good, total) {
-    // console.log('Do It Precent fn');
     const posFeedback = Math.round((good / total) * 100);
     return posFeedback;
   }
@@ -58,11 +46,7 @@ export class FeedBackForm extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <Section title="Please leave feedback">
-        <FeedbackOptions
-          onClickGood={this.handleClickGood}
-          onClickNeutral={this.handleClickNeutral}
-          onClickBad={this.handleClickBad}
-        />
+        <FeedbackOptions onClick={this.handleClick} />
 
         {this.countTotalFeedback() === 0 ? (
           <NotificationMessage message="There is no feedback" />
