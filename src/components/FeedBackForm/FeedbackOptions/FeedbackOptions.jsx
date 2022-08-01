@@ -1,4 +1,5 @@
 import '../FeedBackForm.css';
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({ onClick }) => {
   return (
@@ -31,4 +32,8 @@ export const FeedbackOptions = ({ onClick }) => {
       </div>
     </>
   );
+};
+
+FeedbackOptions.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
